@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #fff0f5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.coupon-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.coupon {
+    flex: 0 0 300px;
+    scroll-snap-align: center;
+    background: #fffafc;
+    border: 2px dashed #ffb6c1;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    min-height: 400px;
+}
+
+.coupon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.coupon::before {
+    content: "❤️";
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.coupon h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6em;
+    color: #d63384;
+    margin: 10px 0;
+}
+
+.coupon .reveal {
+    color: #ff69b4;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.coupon .description {
+    display: none;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #6d4c41;
+    font-style: italic;
+}
+
+.coupon .use-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+    transition: background 0.3s;
+}
+
+.coupon .use-btn:hover {
+    background-color: #ff1493;
+}
+
+.coupon .used {
+    background-color: #aaa;
+    cursor: not-allowed;
+    box-shadow: none;
+}
